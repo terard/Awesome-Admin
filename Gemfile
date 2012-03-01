@@ -17,7 +17,8 @@ group :development, :test do
   gem 'autotest-fsevent'
   # gem 'autotest-growl'
   gem 'spork', '~> 0.9.0.rc'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 # To use ActiveModel has_secure_password
