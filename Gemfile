@@ -14,4 +14,6 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'autotest-standalone'
+  # gem 'autotest-fsevent'
 end
