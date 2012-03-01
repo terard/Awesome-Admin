@@ -31,9 +31,17 @@ describe User do
   end
   
   it "should have admin role" do
-    user = Factory(:user, :username => 'dexter', :password => 'secret', :roles => {:admin => true, :sales => false, :maintenance => true})
+    user = Factory( :user, :username => 'dexter', :password => 'secret',
+                    :roles => {:admin => true, :sales => false, :maintenance => true})
     user.roles[:admin].should == true
   end
+  
+  it "should not have sales role" do
+    user = Factory( :user, :username => 'dexter', :password => 'secret',
+                    :roles => {:admin => true, :sales => false, :maintenance => true})
+    user.roles[:sales].should == false
+  end
+  
   
   it "should not expose password"
   
