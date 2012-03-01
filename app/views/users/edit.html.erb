@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= form_for @user do |f| %>
+  <fieldset>
+    <legend>Change Password</legend>
+
+    <%= f.label "New Password" %>
+    <%= f.text_field :password %>
+    <%= f.submit 'Change' %>  
+    
+  </fieldset>
+<% end %>
