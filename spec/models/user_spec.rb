@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user, :username => 'dexter', :password => 'secret') }  
+  let(:user) { Factory(:user, :username => 'dexter', :password => 'secret', :roles => {:admin => true, :sales => false, :maintenance => true}) }  
   
   it "can be instantiated" do
     user.should be_an_instance_of(User)
@@ -28,6 +28,11 @@ describe User do
     user.password = 'newsecret'
     user.save
     User.find_by_username('dexter').try(:authenticate, 'secret').should_not == user
+  end
+  
+  it "should have admin role" do
+    user = Factory(:user, :username => 'dexter', :password => 'secret', :roles => {:admin => true, :sales => false, :maintenance => true})
+    user.roles[:admin].should == true
   end
   
   it "should not expose password"
