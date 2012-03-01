@@ -30,4 +30,6 @@ describe User do
     User.find_by_username('dexter').try(:authenticate, 'secret').should_not == user
   end
   
+  it "should not expose password"
+  
 end
