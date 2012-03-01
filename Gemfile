@@ -17,5 +17,9 @@ group :development, :test do
   gem 'autotest-standalone'
   gem 'autotest-fsevent'
   # gem 'autotest-growl'
-  gem 'spork', '~> 0.9.0.rc'  
+  gem 'spork', '~> 0.9.0.rc'
+  gem "factory_girl_rails"
 end
+
+# To use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
