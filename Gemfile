@@ -19,6 +19,7 @@ group :development, :test do
   gem 'spork', '~> 0.9.0.rc'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

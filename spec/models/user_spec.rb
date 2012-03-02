@@ -46,6 +46,6 @@ describe User do
   end
   
   it "should have a role list" do
-    user.role_list.should == "Admin Maintenance"
+    user.role_list.should == "Admin, Maintenance"
   end
 end
