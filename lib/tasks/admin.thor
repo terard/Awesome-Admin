@@ -1,16 +1,16 @@
 require "./config/environment"
 
 class Admin < Thor
-  desc "usercount", "gives a user count"
-  def usercount
-    puts "there are #{User.count} users."
-  end
+  # desc "usercount", "gives a user count"
+  # def usercount
+  #   puts "there are #{User.count} users."
+  # end
   
-  desc "finduser", "finds user by username"
-  def finduser(username)
-    user = User.find_by_username username
-    puts "#{user.id}"
-  end
+  # desc "finduser", "finds user by username"
+  # def finduser(username)
+  #   user = User.find_by_username username
+  #   puts "#{user.id}"
+  # end
   
   desc "createuser", "creates user with username and password"
   def createuser(username,password)
