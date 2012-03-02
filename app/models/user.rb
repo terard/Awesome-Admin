@@ -2,10 +2,21 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :roles
   has_secure_password
   validates_presence_of :password, :message => "can't be blank"
+  validates_uniqueness_of :username
   
   ROLE_VALUES = ["admin", "sales", "maintenance"]
 
   serialize :roles, Hash
+  
+  def self.update_password(username,password)
+    user = find_by_username username
+    if user
+      user.password = password
+      user.save!
+    else
+      false
+    end
+  end
   
   def role_list
     list = []

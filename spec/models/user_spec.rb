@@ -16,9 +16,9 @@ describe User do
     User.find_by_username('dexter').try(:authenticate, 'secret').should == user
   end
   
-  it "should authenticate after passoword change" do
-    user.password = 'newsecret'
-    user.save
+  it "should authenticate after password change" do
+    user = Factory(:user, :username => 'dexter')
+    User.update_password('dexter', 'newsecret')
     User.find_by_username('dexter').try(:authenticate, 'newsecret').should == user
   end
   
@@ -28,8 +28,8 @@ describe User do
   end  
   
   it "should not authenticate with old password after passoword change" do
-    user.password = 'newsecret'
-    user.save
+    user = Factory(:user, :username => 'dexter')
+    User.update_password('dexter', 'newsecret')
     User.find_by_username('dexter').try(:authenticate, 'secret').should_not == user
   end
   
