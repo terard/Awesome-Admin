@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe "Users" do
   
+  describe "GET /users with no users" do
+    it "displays no users message" do
+      visit users_path
+      page.should have_content('There are no users.')
+    end    
+  end
+  
   describe "GET /users" do
     before do
       Factory(:user, :roles => {:admin => true, :sales => false, :maintenance => true})
@@ -22,15 +29,7 @@ describe "Users" do
       page.should_not have_content('Sales')
     end
   end
-  
-  describe "GET /users with no users" do
-    it "displays no users message" do
-      visit users_path
-      page.should have_content('There are no users.')
-    end    
-  end
-  
-  
+
   describe "POST /users" do
     before do
       Factory(:user, :roles => {:admin => true, :sales => false, :maintenance => true})

@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :roles
   has_secure_password
   validates_presence_of :password, :message => "can't be blank"
-  validates_uniqueness_of :username
   
   ROLE_VALUES = ["admin", "sales", "maintenance"]
 
