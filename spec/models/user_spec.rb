@@ -22,6 +22,11 @@ describe User do
     User.find_by_username('dexter').try(:authenticate, 'newsecret').should == user
   end
   
+  it "should fail with blank password" do
+    user.password = ''
+    user.should_not be_valid
+  end  
+  
   it "should not authenticate with old password after passoword change" do
     user.password = 'newsecret'
     user.save
